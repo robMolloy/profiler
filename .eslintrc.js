@@ -23,9 +23,9 @@ module.exports = {
     // Uncomment any of the lines below to choose desired strictness,
     // but leave only one uncommented!
     // See https://eslint.vuejs.org/rules/#available-rules
-    'plugin:vue/vue3-essential', // Priority A: Essential (Error Prevention)
+    // 'plugin:vue/vue3-essential', // Priority A: Essential (Error Prevention)
     // 'plugin:vue/vue3-strongly-recommended', // Priority B: Strongly Recommended (Improving Readability)
-    // 'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
+    'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
 
     'airbnb-base'
 
@@ -74,18 +74,10 @@ module.exports = {
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 1 }],
     "object-curly-newline": ["error", { "multiline": true }],
     "vue/max-attributes-per-line": ["error", {
-      "singleline": {
-        "max": 1,
-        "allowFirstLine": true
-      },      
-      "multiline": {
-        "max": 1,
-        "allowFirstLine": false
-      }
+      "singleline": { "max": 1, "allowFirstLine": true },
+      "multiline": { "max": 1, "allowFirstLine": false }
     }],
-    "vue/html-indent": ["error", 2, {
-      "alignAttributesVertically": true,
-    }],
+    "vue/html-indent": ["error", 2, {"alignAttributesVertically": true,}],
     "vue/html-closing-bracket-newline": ["error", {
       "singleline": "never",
       "multiline": "always"
