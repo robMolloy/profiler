@@ -1,6 +1,6 @@
-export default async (collection, id) => {
+export const deleteOne = async ({ db, collectionName, id }) => {
   const response = await new Promise((res, rej) => {
-    collection
+    db.collection(collectionName)
       .doc(id)
       .delete()
       .then(() => res(true))

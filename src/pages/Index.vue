@@ -5,6 +5,10 @@
       src="~assets/quasar-logo-vertical.svg"
       style="width: 200px; height: 200px"
     >
+    <q-input
+      v-model="ghghghgghghghghg"
+      outlined
+    />
     {{ ghghghgghghghghg }}
   </q-page>
 </template>
@@ -15,9 +19,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'PageIndex',
   data() {
-    return {
-      ghghghgghghghghg: 'hahahahahahahaha',
-    };
+    return { ghghghgghghghghg: 'hahahahahahahaha' };
   },
 });
 </script>

@@ -1,6 +1,7 @@
-export default async (collection, id) => {
+export const readOne = async ({ db, collectionName, id }) => {
   const response = await new Promise((res, rej) => {
-    collection
+    db
+      .collection(collectionName)
       .doc(id)
       .get()
       .then((doc) => res(doc.exists ? doc.data() : null))

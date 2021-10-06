@@ -182,9 +182,7 @@ module.exports = configure((ctx) => ({
   },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli/developing-capacitor-apps/configuring-capacitor
-  capacitor: {
-    hideSplashscreen: true,
-  },
+  capacitor: { hideSplashscreen: true },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli/developing-electron-apps/configuring-electron
   electron: {

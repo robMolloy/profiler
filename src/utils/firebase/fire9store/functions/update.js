@@ -1,8 +1,8 @@
-export default async (collection, data, id) => {
+export const updateOne = async ({ db, collectionName, data, id }) => {
   Object.assign(data, { updatedAt: Date.now() });
 
   const response = await new Promise((res, rej) => {
-    collection
+    db.collection(collectionName)
       .doc(id)
       .update(data)
       .then(() => res(data))
