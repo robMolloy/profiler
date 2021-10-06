@@ -72,7 +72,24 @@ module.exports = {
     'spaced-comment': 'off',
     'no-console': 'off',
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 1 }],
-
+    "object-curly-newline": ["error", { "multiline": true }],
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": {
+        "max": 1,
+        "allowFirstLine": true
+      },      
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": false
+      }
+    }],
+    "vue/html-indent": ["error", 2, {
+      "alignAttributesVertically": true,
+    }],
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "always"
+    }],
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
