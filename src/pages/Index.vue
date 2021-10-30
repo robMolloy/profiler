@@ -7,8 +7,8 @@
     >
     <q-input
       v-model="ghghghgghghghghg"
+      outlined
     />
-    {{ ghghghgghghghghg }}
   </q-page>
 </template>
 

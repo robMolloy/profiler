@@ -4,6 +4,7 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   
   "vetur.experimental.templateInterpolationService": true,
+  "vetur.validation.interpolation": false,
 
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,

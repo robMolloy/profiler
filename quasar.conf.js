@@ -23,7 +23,10 @@ module.exports = configure((ctx) => ({
   // --> boot files are part of "main.js"
   // https://v2.quasar.dev/quasar-cli/boot-files
   boot: [
+    'clearConsole',
     'i18n',
+    'components',
+    'v9',
   ],
 
   // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -177,9 +180,7 @@ module.exports = configure((ctx) => ({
   },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
-  cordova: {
-    // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
-  },
+  cordova: { /* noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing */ },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli/developing-capacitor-apps/configuring-capacitor
   capacitor: { hideSplashscreen: true },

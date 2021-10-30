@@ -9,3 +9,7 @@ export const deleteOne = async ({ db, collectionName, id }) => {
 
   return response;
 };
+
+export const delete = async ({ db, collectionName, id }) => {
+  if(Array.isArray(id)) deleteOne({ db, collectionName, id })
+};

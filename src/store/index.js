@@ -14,9 +14,7 @@ import { createStore } from 'vuex';
 
 export default store((/* { ssrContext } */) => {
   const Store = createStore({
-    modules: {
-      // example
-    },
+    modules: {},
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only

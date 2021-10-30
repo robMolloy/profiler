@@ -15,5 +15,5 @@ export default class Fire9Store {
     this.db = firebaseApp.firestore();
     this.db.settings(settings);
   }
-  ...create
+  ...createFns
 }
