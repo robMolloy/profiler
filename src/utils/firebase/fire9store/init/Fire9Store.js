@@ -1,19 +1,32 @@
-// Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from 'firebase/app';
 
-// Add the Firebase products that you want to use
 import 'firebase/firestore';
-import * as createFns from '../functions/create';
 
-export default class Fire9Store {
+import { add, addOne, addBatch } from '../functions/create';
+
+export class Fire9Store {
   constructor(config, settings) {
     settings = settings || { timestampsInSnapshots: true, enablePersistence: true };
 
     // Initialize Firebase
-    const firebaseApp = firebase.initializeApp(config);
+    firebase.initializeApp(config);
 
     this.db = firebaseApp.firestore();
     this.db.settings(settings);
+    this.settings = settings;
   }
-  ...createFns
+
+  async add(props) {
+    return await add({ db: this.db, ...props });
+  }
+
+  async addOne(props) {
+    const response = await addOne({ db: this.db, ...props });
+    return response;
+  }
+
+  async addBatch(props) {
+    const response = await addBatch({ db: this.db, ...props });
+    return response;
+  }
 }

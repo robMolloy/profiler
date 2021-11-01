@@ -26,6 +26,7 @@ module.exports = configure((ctx) => ({
     'clearConsole',
     'i18n',
     'components',
+    'firebase',
     'v9',
   ],
 
