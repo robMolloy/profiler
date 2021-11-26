@@ -1,6 +1,9 @@
 <template>
-  <RmCardBase v-bind="{...componentProps, ...attrs}">
-    <RmHeaderBar :title="title">
+  <RmCardBase v-bind="{...componentProps, ...attrs }">
+    <RmHeaderBar
+      v-if="showHeader"
+      :title="title"
+    >
       <template #left>
         <slot name="headerLeft" />
       </template>
@@ -16,10 +19,14 @@
 </template>
 
 <script setup>
-import { useAttrs } from 'vue';
+import { useAttrs, defineProps } from 'vue';
 import { RmCardHeader as componentProps } from '../../../../config/customise/componentProps';
 import RmCardBase from './RmCardBase.vue';
 import RmHeaderBar from '../bars/RmHeaderBar.vue';
 
 const { title, ...attrs } = useAttrs();
+defineProps({
+  showHeader: { type: Boolean, default: true },
+  title: { type: String, default: '' },
+});
 </script>
