@@ -1,37 +1,91 @@
 <template>
-  <h2>Test 2</h2>
+  <RmCardForm
+    title="form"
+    @submit="onSubmit"
+    @reset="onReset"
+  >
+    <Test1FormContent v-model="formData" />
+  </RmCardForm>
+
+  <RmButtonBase @click="open1=true">
+    Open 1
+  </RmButtonBase>
+
+  <RmDialogCard
+    v-model="open1"
+    title="some dialog"
+  >
+    <RmInputBase
+      v-model="formData.input1"
+      label="input1"
+    />
+    <RmInputBase
+      v-model="formData.input2"
+      label="input2"
+    />
+  </RmDialogCard>
+
+  <RmButtonBase @click="open2=true">
+    Open 2
+  </RmButtonBase>
+
+  <RmDialogForm
+    v-model="open2"
+    title="some dialog"
+    @submit="onSubmit"
+    @reset="onReset"
+  >
+    <RmInputBase
+      v-model="formData.input1"
+      label="input1"
+    />
+    <RmInputBase
+      v-model="formData.input2"
+      label="input2"
+    />
+  </RmDialogForm>
+
+  <RmButtonBase @click="open3=true">
+    Open 3
+  </RmButtonBase>
+
+  <q-dialog v-model="open3">
+    <RmCardForm
+      title="some dialog"
+      @submit="onSubmit"
+      @reset="onReset"
+    >
+      <RmInputBase
+        v-model="formData.input1"
+        label="input1"
+      />
+      <RmInputBase
+        v-model="formData.input2"
+        label="input2"
+      />
+    </RmCardForm>
+  </q-dialog>
 </template>
 
 <script setup>
-import { group } from 'index9';
-import { countries, contacts, customers } from 'index9/exampleData';
-// import * as exampleData from 'index9/exampleData';
+import { ref, reactive } from 'vue';
+import { reass9 } from 'reass9';
 
-console.log(/*LL*/ 11, 'countries, contacts, customers', countries, contacts, customers);
+import RmButtonBase from 'src/components/generic/single/buttons/RmButtonBase.vue';
+import RmCardForm from 'src/components/generic/multi/RmCardForm.vue';
+import RmInputBase from 'src/components/generic/single/input/RmInputBase.vue';
+import RmDialogForm from 'src/components/generic/multi/RmDialogForm.vue';
+import RmDialogCard from 'src/components/generic/single/dialogs/RmDialogCard.vue';
+import Test1FormContent from 'src/components/multi/form-contents/Test1FormContent.vue';
 
-// const countries = {
-//   id1: { id: 'id1', name: 'america', pop: 300000000, continent: 'NA' },
-//   id2: { id: 'id2', name: 'colombia', pop: 100000000, continent: 'SA' },
-//   id3: { id: 'id3', name: 'UK', pop: 70000000, continent: 'EUR' },
-//   id4: { id: 'id4', name: 'France', pop: 80000000, continent: 'EUR' },
-// };
-const indexed = group(countries)
-  .on('continent');
+const initFormData = { input1: '', input2: '' };
+const formData = reactive({ ...initFormData });
 
-console.log(/*LL*/ 17, 'indexed', indexed);
+const onSubmit = () => console.log(formData);
+const onReset = () => reass9(formData, { ...initFormData });
 
-// // import { mapGetters } from 'vuex';
-// import { db } from 'src/boot/firebase';
-// import {
-//   doc,
-//   getDoc,
-// } from 'firebase/firestore';
-
-// const docRef = doc(db, 'users', '1bHvmHPULCUUny1ZAouvQ9IJRaX2');
-// const docSnap = await getDoc(docRef);
-// console.log(/*LL*/ 28, 'docSnap', docSnap);
-
-// if (docSnap.exists()) {console.log('Document data:', docSnap.data())};
-// else console.log('No such document!');
+const open1 = ref(false);
+const open2 = ref(false);
+const open3 = ref(false);
 
 </script>

@@ -1,12 +1,3 @@
-const onStatusChange = (status) => {
-  if (status !== 'prepare') return;
+import { clearConsole } from 'clearvue9';
 
-  console.clear();
-  console.warn('Console cleared in \'src/boot/clearConsole.js\' - may not show boot errors');
-};
-
-if (module.hot) {
-  module.hot.accept(); // already had this init code
-
-  module.hot.addStatusHandler(onStatusChange);
-}
+clearConsole(module);
