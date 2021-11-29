@@ -1,19 +1,19 @@
 export const reader = {
-  async read(...props) {
-    const fn = this.isManyDocs(props.docs) ? this.readMany : this.readOne;
-    return await fn(...props);
+  async readOne({ collectionName, payload }) {
+    const id = payload;
+    const ref = this.getRef({ collectionName, id });
+    const docSnap = await this.getDoc(ref);
+    return this.parseDoc(docSnap);
   },
 
-  // async readOne({ collectionName, data }) {
-  //   const ref = this.getRef({ collectionName, data });
-
-  //   const docSnap = await this.getDoc(ref);
-  //   return docSnap.exists() ? docSnap.data() : null;
-  // },
+  async readMany({ collectionName, payload = [] }) {
+    const ids = payload;
+    const promises = ids.map((id) => this.readOne({ collectionName, payload: id }));
+    return await Promise.all(promises);
+  },
 
   async readAll({ collectionName }) {
-    const collection = this.getCollection({ collectionName });
-    const querySnapshot = await this.getDocs(collection);
-    return querySnapshot.map((doc) => doc.data());
+    const docs = await this.getDocs(this.getCollection({ collectionName }));
+    return this.parseDocs(docs);
   },
 };

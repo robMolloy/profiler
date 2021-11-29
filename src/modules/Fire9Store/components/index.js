@@ -1,5 +1,6 @@
-import { attacker } from './attacker';
-import { hasHealth } from './hasHealth';
-import { mover } from './mover';
+import { creater } from './creater';
+import { reader } from './reader';
+import { updater } from './updater';
+import { deleter } from './deleter';
 
-export { attacker, hasHealth, mover };
+export { creater, reader, updater, deleter };

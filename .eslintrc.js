@@ -71,6 +71,7 @@ module.exports = {
     'linebreak-style': 'off',
     'spaced-comment': 'off',
     'no-console': 'off',
+    "class-methods-use-this":"off",
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 1 }],
     "object-curly-newline": ["error", { "multiline": true }],
     "vue/max-attributes-per-line": ["error", {

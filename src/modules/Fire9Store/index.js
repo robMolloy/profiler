@@ -1,3 +1,3 @@
-import { Character, Turret, Wall } from './entities';
+import { Fire9Store } from './entities';
 
-export { Character, Turret, Wall };
+export { Fire9Store };
