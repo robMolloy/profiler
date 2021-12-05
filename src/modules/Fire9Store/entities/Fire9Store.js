@@ -1,9 +1,12 @@
 import { initializeApp } from 'firebase/app';
 // initializeApp(firebaseCredentials);
 
-import { getFirestore, writeBatch, doc, collection, query, where, getDoc, getDocs, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { getFirestore, writeBatch, doc, collection, query, where, onSnapshot, getDoc, getDocs, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { v4 as uuid } from 'uuid';
-import { creater, reader, updater, deleter } from '../components';
+import { creater, reader, updater, deleter, listener } from '../components';
+
+const helpers = { writeBatch, doc, collection, query, where, onSnapshot };
+const crudHelpers = { getDoc, getDocs, setDoc, updateDoc, deleteDoc };
 
 export class Fire9Store {
   constructor(config) {
@@ -11,10 +14,8 @@ export class Fire9Store {
     initializeApp(config);
     this.db = getFirestore();
 
-    const helpers = { getFirestore, writeBatch, doc, collection, query, where };
-    const crudHelpers = { getDoc, getDocs, setDoc, updateDoc, deleteDoc };
-
-    Object.assign(this, helpers, crudHelpers, { uuid }, creater, reader, updater, deleter);
+    Object.assign(this, helpers, crudHelpers, { uuid });
+    Object.assign(this, creater, reader, updater, deleter, listener);
   }
 
   isManyDocs(data) {

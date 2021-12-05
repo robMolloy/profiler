@@ -19,14 +19,14 @@
 </template>
 
 <script setup>
-import { useAttrs, defineProps } from 'vue';
-import { RmCardHeader as componentProps } from '../../../../config/customise/componentProps';
+import { defineProps, useAttrs } from 'vue';
+import { RmCard as componentProps } from '../../../../config/customise/componentProps';
 import RmCardBase from './RmCardBase.vue';
 import RmHeaderBar from '../bars/RmHeaderBar.vue';
 
-const { title, ...attrs } = useAttrs();
 defineProps({
   showHeader: { type: Boolean, default: true },
   title: { type: String, default: '' },
 });
+const attrs = useAttrs();
 </script>

@@ -10,6 +10,7 @@ export const updater = {
 
   async updateOne({ collectionName, payload }) {
     const doc = payload;
+    console.log(/*LL*/ 13, 'doc', doc);
     this.beforeUpdate(doc);
 
     const ref = this.getRef({ collectionName, id: doc.id });

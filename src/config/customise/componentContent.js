@@ -23,5 +23,23 @@ export const RmInterfaceSideBarLinks = [
     icon: 'code',
     link: '/tests/test3',
   },
+  {
+    title: 'Test4',
+    caption: 'test 4',
+    icon: 'code',
+    link: '/tests/test4',
+  },
+  {
+    title: 'Test5',
+    caption: 'test 5',
+    icon: 'code',
+    link: '/tests/test5',
+  },
+  {
+    title: 'Test6',
+    caption: 'test 6',
+    icon: 'code',
+    link: '/tests/test6',
+  },
 
 ];

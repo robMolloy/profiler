@@ -9,6 +9,7 @@
     </template>
 
     <RmForm
+      v-bind="attrs"
       @submit="(...props)=>$emit('submit',...props)"
       @reset="(...props)=>$emit('reset',...props)"
     >
@@ -18,11 +19,13 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue';
+import { defineEmits, useAttrs } from 'vue';
 
-import RmCardHeader from '../single/cards/RmCardHeader.vue';
+import RmCardHeader from '../single/cards/RmCard.vue';
 import RmForm from './RmForm.vue';
 
 defineEmits(['submit', 'reset']);
+
+const attrs = useAttrs();
 
 </script>

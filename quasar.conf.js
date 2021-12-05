@@ -26,7 +26,8 @@ module.exports = configure((ctx) => ({
     'clearConsole',
     'i18n',
     'components',
-    'firebase',
+    // 'firebase',
+    'fire9Boot',
     'v9',
   ],
 
@@ -191,18 +192,15 @@ module.exports = configure((ctx) => ({
   electron: {
     bundler: 'packager', // 'packager' or 'builder'
 
-    packager: {
-      // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
-
-      // OS X / Mac App Store
-      // appBundleId: '',
-      // appCategoryType: '',
-      // osxSign: '',
-      // protocol: 'myapp://path',
-
-      // Windows only
-      // win32metadata: { ... }
-    },
+    // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
+    // OS X / Mac App Store
+    // appBundleId: '',
+    // appCategoryType: '',
+    // osxSign: '',
+    // protocol: 'myapp://path',
+    // Windows only
+    // win32metadata: { ... }
+    packager: {/* COMMENT ABOVE */},
 
     builder: {
       // https://www.electron.build/configuration/configuration

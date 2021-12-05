@@ -8,7 +8,3 @@
 import { RmCardActions as componentProps } from '../../../../config/customise/componentProps';
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

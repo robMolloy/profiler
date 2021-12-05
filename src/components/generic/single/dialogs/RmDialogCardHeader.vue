@@ -13,7 +13,7 @@
 import { useAttrs } from 'vue';
 import { RmDialogCardHeader as componentProps } from '../../../../config/customise/componentProps';
 
-import RmCardHeader from '../cards/RmCardHeader.vue';
+import RmCardHeader from '../cards/RmCard.vue';
 import RmIconClose from '../icons/RmIconClose.vue';
 import RmDialogBase from './RmDialogBase.vue';
 
