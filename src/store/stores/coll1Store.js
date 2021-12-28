@@ -20,7 +20,7 @@ const actions = {
   },
 };
 
-export default {
+export const coll1Store = {
   namespaced: true,
   state,
   getters,

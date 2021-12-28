@@ -1,9 +1,11 @@
 import { store } from 'quasar/wrappers';
 import { createStore } from 'vuex';
 
-import { vuexSync } from 'fire9store';
-import { f9Store } from 'src/boot/fire9Boot';
-import coll1 from './stores/coll1Store';
+// import { vuexSync } from 'fire9store';
+// import { f9Store } from 'src/boot/fire9Boot';
+import { db } from 'src/boot/firebase';
+import { coll1Store } from './stores/coll1Store';
+import { createVuexFirestoreSyncStore } from './stores/coll2Store';
 
 /*
  * If not building with SSR mode, you can
@@ -16,14 +18,17 @@ import coll1 from './stores/coll1Store';
 
 export default store((/* { ssrContext } */) => {
   const Store = createStore({
-    modules: { coll1 },
+    modules: {
+      coll1: coll1Store,
+      coll2: createVuexFirestoreSyncStore({ db, collectionName: 'coll2' }),
+    },
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
     strict: process.env.DEBUGGING,
   });
 
-  vuexSync({ f9Store, store: Store, moduleName: 'coll1' });
+  // vuexSync({ f9Store, store: Store, moduleName: 'coll1' });
 
   return Store;
 });
