@@ -17,16 +17,23 @@
       label="delete"
       @click="deleteById"
     />
+    <RmButtonBase
+      label="sync1"
+      @click="sync1"
+    />
 
-    <pre>indexed: {{ indexed }}</pre>
+    <pre>local:  {{ local }}</pre>
+    <pre>indexed : {{ indexed }}</pre>
   </RmCardForm>
 </template>
 
 <script setup>
+/* eslint-disable no-unused-vars */
 import RmButtonBase from 'src/components/generic/single/buttons/RmButtonBase.vue';
+import { useStore } from 'vuex';
 import { useNamespacedStore } from 'vuex9';
 import { ref, computed } from 'vue';
-import { f9Store } from 'src/boot/fire9Boot';
+// import { f9Store } from 'src/boot/fire9Boot';
 import RmInputBase from 'src/components/generic/single/input/RmInputBase.vue';
 import RmCardForm from 'src/components/generic/multi/RmCardForm.vue';
 
@@ -34,18 +41,22 @@ const id1 = ref('');
 const id2 = ref('');
 const ids = computed(() => [id1.value, id2.value]);
 
-const coll1Store = useNamespacedStore('coll1');
+const store = useStore();
+const coll2Store = useNamespacedStore('coll2');
 
-const { indexed } = coll1Store.getters('indexed');
+const { indexed, local } = coll2Store.getters(['indexed', 'local']);
+const { deleteLocal } = coll2Store.commit(['deleteLocal']);
+const { sync } = coll2Store.dispatch(['sync']);
 
 const deleteById = () => {
-  console.log(/*LL*/ 38, 'ids.value', ids.value);
-  f9Store.delete({ collectionName: 'coll1', payload: ids.value });
+  console.log(/*LL*/ 54, 'id1.value', id1.value);
+  deleteLocal(id1.value);
 };
 
 const onSubmit = () => {
-  setTimeout(() => console.log(/*LL*/ 43, '123', 123), 3000);
+  setTimeout(() => console.log(/*LL*/ 58, '123', 123), 3000);
 };
-// const { setData: setDataCommit } = coll1Store.commit(['setData']);
-
+const sync1 = () => {
+  sync();
+};
 </script>
