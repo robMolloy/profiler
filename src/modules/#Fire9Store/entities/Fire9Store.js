@@ -23,7 +23,8 @@ export class Fire9Store {
   }
 
   parseDoc(doc1) {
-    return { ...doc1.data(), id: doc1.id };
+    const { id } = doc1;
+    return { ...doc1.data(), id };
   }
 
   parseDocs(docs) {
