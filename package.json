@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "kill": "kill $(lsof -t -i:8080)"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -15,7 +16,7 @@
     "clearvue9": "^1.2.1",
     "core-js": "^3.6.5",
     "extract9": "^1.0.5",
-    "fire9store": "^1.1.16",
+    "fire9store": "^1.1.21",
     "firebase": "^9.2.0",
     "index9": "^1.0.3",
     "lodash": "^4.17.21",
