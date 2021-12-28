@@ -5,5 +5,4 @@ export const f9Store = new Fire9Store(firebaseCredentials);
 
 export default ({ store }) => {
   vuexSync({ f9Store, store, moduleName: 'coll1' });
-  console.log(/*LL*/ 7, 'store', store);
 };
