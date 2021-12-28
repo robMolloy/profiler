@@ -6,6 +6,9 @@ import Test3 from '../tests/test3/Test3.vue';
 import Test4 from '../tests/test4/Test4.vue';
 import Test5 from '../tests/test5/Test5.vue';
 import Test6 from '../tests/test6/Test6.vue';
+import Test7 from '../tests/test7/Test7.vue';
+import Test8 from '../tests/test8/Test8.vue';
+import Test9 from '../tests/test9/Test9.vue';
 // import TestsLayout from '../tests/TestsLayout.vue';
 
 const routes = [
@@ -24,6 +27,9 @@ const routes = [
           { path: 'test4', component: Test4 },
           { path: 'test5', component: Test5 },
           { path: 'test6', component: Test6 },
+          { path: 'test7', component: Test7 },
+          { path: 'test8', component: Test8 },
+          { path: 'test9', component: Test9 },
         ],
       },
     ],
