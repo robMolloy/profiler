@@ -1,5 +1,11 @@
 <template>
   <RmCard title="form">
+    <h4>Listener</h4>
+    <RmButtonBase
+      label="StartListener"
+      @click="startListener"
+    />
+
     <h4>Create</h4>
     <RmInputBase
       v-model="createFormData.id1"
@@ -131,14 +137,11 @@
 </template>
 
 <script setup>
-/* eslint-disable no-unused-vars */
-
 import RmInputBase from 'src/components/generic/single/input/RmInputBase.vue';
 import RmButtonBase from 'src/components/generic/single/buttons/RmButtonBase.vue';
 import RmCard from 'src/components/generic/single/cards/RmCard.vue';
 import { f9Store } from 'src/boot/fire9Boot';
 import { reactive } from 'vue';
-// import RmCardForm from 'src/components/generic/multi/RmCardForm.vue';
 
 const collectionName = 'userCollection';
 const someValue = { some: 'value2' };
@@ -147,6 +150,11 @@ const createFormData = reactive({});
 const readFormData = reactive({});
 const updateFormData = reactive({});
 const deleteFormData = reactive({});
+
+const startListener = async () => {
+  const onChange = (x) => console.log('listener', x);
+  await f9Store.listenToCollection({ collectionName, onChange });
+};
 
 const createOne = async () => {
   const { id1 } = createFormData;
@@ -166,19 +174,20 @@ const readOne = async () => {
   const payload1 = id1;
 
   const response = await f9Store.readOne({ collectionName, payload: payload1 });
-  console.log(/*LL*/ 173, 'response', response);
+  console.log(/*LL*/ 177, 'response', response);
 };
 const readMany = async () => {
   const { id2, id3 } = readFormData;
   const payload2 = [id2, id3];
 
   const response = await f9Store.readMany({ collectionName, payload: payload2 });
-  console.log(/*LL*/ 180, 'response', response);
+  console.log(/*LL*/ 184, 'response', response);
 };
 const readAll = async () => {
   const response = await f9Store.readAll({ collectionName });
-  console.log(/*LL*/ 184, 'response', response);
+  console.log(/*LL*/ 188, 'response', response);
 };
+
 const updateOne = async () => {
   const { id1: id, key1: key, value1: value } = updateFormData;
 
@@ -187,7 +196,7 @@ const updateOne = async () => {
 const updateMany = async () => {
   const { id2, key2, value2, id3, key3, value3 } = updateFormData;
   const payload = [{ id: id2, [key2]: value2 }, { id: id3, [key3]: value3 }];
-  console.log(/*LL*/ 194, 'payload', payload);
+  console.log(/*LL*/ 199, 'payload', payload);
 
   await f9Store.updateMany({ collectionName, payload });
 };
